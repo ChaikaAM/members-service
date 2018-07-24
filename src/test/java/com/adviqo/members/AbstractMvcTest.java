@@ -38,7 +38,7 @@ public class AbstractMvcTest {
         MemberDto memberDto = new MemberDto();
         memberDto.setFirstName("User" + RandomStringUtils.random(5, true, true));
         memberDto.setLastName(RandomStringUtils.random(5, true, true));
-        memberDto.setBirthDate(LocalDateTime.of(1986, 06, 13, 12, 00));
+        memberDto.setBirthDate(LocalDateTime.of(1986, 6, 13, 12, 00));
         memberDto.setPostalCode(RandomStringUtils.random(5, true, true));
         return memberDto;
     }
