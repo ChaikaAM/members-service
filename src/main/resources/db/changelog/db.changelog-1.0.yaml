@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial_changeset
+      author: aleksei_chaika
+      changes:
+      - createTable:
+          tableName: member
+          columns:
+          - column:
+              autoIncrement: true
+              constraints:
+                primaryKey: true
+                primaryKeyName: member_id
+              name: id
+              type: BIGINT
+          - column:
+              name: first_name
+              type: VARCHAR(100)
+              constraints:
+                nullable: false
+          - column:
+              name: last_name
+              type: VARCHAR(100)
+          - column:
+              name: birth_date
+              type: TIMESTAMP
+          - column:
+              name: postal_code
+              type: VARCHAR(20)
+          - column:
+              name: creation_date
+              type: TIMESTAMP
+              defaultValueComputed: CURRENT_TIMESTAMP
+              constraints:
+                nullable: false
