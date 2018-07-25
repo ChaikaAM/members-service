@@ -3,17 +3,14 @@ package com.adviqo.members.dto;
 import com.adviqo.members.model.Member;
 import lombok.Data;
 
-import javax.validation.constraints.NotEmpty;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 public final class MemberDto {
 
-    @NotEmpty
     private String firstName;
-
     private String lastName;
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
     private String postalCode;
 
     public final Member toMember() {

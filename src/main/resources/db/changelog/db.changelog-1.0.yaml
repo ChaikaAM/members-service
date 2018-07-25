@@ -23,7 +23,7 @@ databaseChangeLog:
               type: VARCHAR(100)
           - column:
               name: birth_date
-              type: TIMESTAMP
+              type: DATE
           - column:
               name: postal_code
               type: VARCHAR(20)

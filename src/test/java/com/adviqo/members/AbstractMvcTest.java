@@ -12,20 +12,28 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
+import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AbstractMvcTest {
+public abstract class AbstractMvcTest {
 
     @LocalServerPort
-    protected int port;
+    private int port;
 
     @Autowired
     private MemberRepository memberRepository;
 
     @Autowired
     protected TestRestTemplate restTemplate;
+
+    protected String testServerUrl;
+
+    @PostConstruct
+    public void setUp() {
+        testServerUrl = "http://localhost:" + port;
+    }
 
     @Before
     public void prepareTestEnvironment() {
@@ -38,7 +46,7 @@ public class AbstractMvcTest {
         MemberDto memberDto = new MemberDto();
         memberDto.setFirstName("User" + RandomStringUtils.random(5, true, true));
         memberDto.setLastName(RandomStringUtils.random(5, true, true));
-        memberDto.setBirthDate(LocalDateTime.of(1986, 6, 13, 12, 00));
+        memberDto.setBirthDate(LocalDate.of(1986, 6, 13));
         memberDto.setPostalCode(RandomStringUtils.random(5, true, true));
         return memberDto;
     }

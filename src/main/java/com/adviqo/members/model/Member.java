@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -23,7 +24,7 @@ public class Member {
     private String lastName;
 
     @Column
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
 
     @Column
     private String postalCode;
