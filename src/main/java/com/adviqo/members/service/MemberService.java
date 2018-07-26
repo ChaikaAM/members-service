@@ -64,4 +64,8 @@ public class MemberService {
             throw new MemberNotFoundException("Member could not be deleted because id has not been found in database");
         }
     }
+
+    public boolean existsById(Long id) {
+        return memberRepository.existsById(id);
+    }
 }
